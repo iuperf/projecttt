@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+<div class="col-12" align="center">
+    <div class="bform">
+        <h4>Введите дату рождения(дд мм гггг):</h4>
+        <form action="/matriс" method="post">
+            {{ form.csrf_token }}
+            <p class="form-inline">
+                {{ form.datee(class="form-control") }}
+                {{ form.monthe(class="form-control") }}
+                {{ form.agee(class="form-control") }}
+            </p>
+            <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        </form>
+        <div class="redform">{{ message }}</div>
+    </div>
+    <table class="table1">
+        <tbody>
+        <tr >
+            <td class="tdm1">
+                Знак зодиака<br>
+                {{ matr['a'] }}
+            </td>
+            <td class="tdm1">
+                Знак зодиака по марсу<br>
+                {{ matr['b'] }}
+            </td>
+            <td class="tdm1">
+                Главная черта<br>
+                {{ matr['c'] }}
+            </td>
+            <td class="tdm2" align="center">
+                Цель<br>
+                {{ matr['d'] }}
+            </td>
+        </tr>
+        <tr>
+            <td class="tdm1">
+                Плюсы<br>
+                {{ matr['e'] }}
+            </td>
+            <td class="tdm1">
+                Минусы<br>
+                {{ matr['f'] }}
+            </td>
+            <td class="tdm1">
+                Совместимость лучшая<br>
+                {{ matr['g'] }}
+            </td>
+            <td class="tdm2" align="center">
+                Совместимость худшая<br>
+                {{ matr['h'] }}
+            </td>
+        </tr>
+        <tr>
+            <td class="tdm2" align="center">
+                Дело для вас<br>
+                {{ matr['i'] }}
+            </td>
+            <td class="tdm2" align="center">
+                Счастливые числа<br>
+                {{ matr['j'] }}
+            </td>
+            <td class="tdm2" align="center" colspan="2">
+                Прогноз на будущее<br>
+                {{ matr['k'] }}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    {% if current_user.is_authenticated %}
+    <a class="btn btn-success" href="/matriсharacter">Получить персональную характеристку</a>
+    {% else %}
+    <div class="bform" align="center">
+        <label>Узнать подробнее о себе в разделе "Подробнее"</label> <br>
+        <a class="btn btn-success" href="https://www.instagram.com/irisshaaaaa/?hl=ru">Есть вопросы? Пиши</a><br>
+        <label>@irisshaaaa</label>
+    </div>
+    {% endif %}
+</div>
+</div>
+</div>
+{% endblock %}
