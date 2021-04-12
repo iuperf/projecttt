@@ -3,6 +3,8 @@ import sqlite3
 connection = sqlite3.connect('inform.db')
 cursor = connection.cursor()
 
+
+
 cursor.execute('''CREATE TABLE IF NOT EXISTS OVEN
               (zz TEXT, asz TEXT, otl TEXT, pred TEXT,
               plus TEXT, minus TEXT, sov TEXT, nesov TEXT,
