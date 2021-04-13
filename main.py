@@ -1,8 +1,10 @@
 from flask import Flask, render_template, redirect
 from data import db_session
+import datetime
 from data.users import User
 from data.login_form import LoginForm
 from flask_login import LoginManager, login_user, login_required, logout_user
+from User_register import User_register
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'key_x'
@@ -38,6 +40,26 @@ def login():
         else:
             return render_template('login.html', message="Wrong login or password", form=form)
     return render_template('login.html', title='Authorization', form=form)
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = User_register()
+    if form.validate_on_submit():
+        user = User()
+        user.name = form.name.data
+        user.surname = form.surname.data
+        user.age = form.age.data
+        user.email = form.email.data
+        date = str(form.birth_date.data) + ' ' + '00:00'
+        user.birth_date = datetime.datetime.strptime(date,  "%d.%m.%y %H:%M")
+        user.set_password(str(form.password.data))
+        db_sess = db_session.create_session()
+        db_sess.add(user)
+        db_sess.commit()
+        return redirect("/")
+    else:
+        return render_template('register.html', message="Wrong login or password", form=form)
+    return render_template('register.html', title='Authorization', form=form)
 
 
 @app.route('/logout')
