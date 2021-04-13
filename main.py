@@ -21,6 +21,7 @@ def load_user(user_id):
 def main_page():
     return render_template('main_page.html')
 
+
 """Заход на главную страницу"""
 
 
@@ -38,6 +39,7 @@ def login():
             return render_template('login.html', message="Wrong login or password", form=form)
     return render_template('login.html', title='Authorization', form=form)
 
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -47,5 +49,5 @@ def logout():
 
 if __name__ == '__main__':
     print('http://127.0.0.1:8080/')
-    db_session.global_init("db/users.db") # сюда подставим бд
+    db_session.global_init("db/users.db")  # сюда подставим бд
     app.run(port=8080, host='127.0.0.1')
