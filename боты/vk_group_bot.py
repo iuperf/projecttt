@@ -1,7 +1,7 @@
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 import random
-from боты.config import TOKEN, group_id
+from боты.config import VK_TOKEN, group_id
 
 
 def main():

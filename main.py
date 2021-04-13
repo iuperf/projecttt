@@ -41,5 +41,5 @@ def main_page():
 
 if __name__ == '__main__':
     print('http://127.0.0.1:8080/')
-    db_session.global_init("db/mars_explorer.sqlite") # сюда подставим бд
+    db_session.global_init("users.db") # сюда подставим бд
     app.run(port=8080, host='127.0.0.1')
