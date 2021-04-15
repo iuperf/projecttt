@@ -5,6 +5,7 @@ from data.users import User
 from data.login_form import LoginForm
 from flask_login import LoginManager, login_user, login_required, logout_user
 from User_register import User_register
+from боты.email_sendler import send_message
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'key_x'
@@ -56,12 +57,17 @@ def register():
             user.email = form.email.data
         else:
             return render_template('register.html', message="Такой E-mail уже зарегестрирован", form=form)
+
         try:
             date = str(form.birth_date.data) + ' ' + '00:00'
             user.birth_date = datetime.datetime.strptime(date, "%d.%m.%y %H:%M")
         except ValueError:
             return render_template('register.html', message="Дата должна быть в формате dd.mm.yy", form=form)
         user.set_password(str(form.password.data))
+        stroka = [f'Поздравляем с регистрацией {user.name} {user.surname}!', f'Вы зарегестрировались на нашем сайте',
+                  f'Вы указали что вам {user.age} лет и ваш день рождения {user.birth_date}!']
+        stroka = '\n'.join(stroka)
+        send_message(form.email.data, stroka)
         db_sess = db_session.create_session()
         db_sess.add(user)
         db_sess.commit()
@@ -70,6 +76,7 @@ def register():
         print(user.check_password(form.password.data))
         if user and user.check_password(form.password.data):
             login_user(user, remember=True)
+
         return redirect("/")
     else:
         return render_template('register.html', message="Упс, что то ввели неправильно", form=form)
