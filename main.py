@@ -50,16 +50,29 @@ def register():
         user.name = form.name.data
         user.surname = form.surname.data
         user.age = form.age.data
-        user.email = form.email.data
-        date = str(form.birth_date.data) + ' ' + '00:00'
-        user.birth_date = datetime.datetime.strptime(date, "%d.%m.%y %H:%M")
+        db_sess = db_session.create_session()
+        a = db_sess.query(User).filter(User.email == form.email.data).first()
+        if not a:
+            user.email = form.email.data
+        else:
+            return render_template('register.html', message="Такой E-mail уже зарегестрирован", form=form)
+        try:
+            date = str(form.birth_date.data) + ' ' + '00:00'
+            user.birth_date = datetime.datetime.strptime(date, "%d.%m.%y %H:%M")
+        except ValueError:
+            return render_template('register.html', message="Дата должна быть в формате dd.mm.yy", form=form)
         user.set_password(str(form.password.data))
         db_sess = db_session.create_session()
         db_sess.add(user)
         db_sess.commit()
+        db_sess = db_session.create_session()
+        user = db_sess.query(User).filter(User.email == form.email.data).first()
+        print(user.check_password(form.password.data))
+        if user and user.check_password(form.password.data):
+            login_user(user, remember=True)
         return redirect("/")
     else:
-        return render_template('register.html', message="Зарегестрируйтесь здесь", form=form)
+        return render_template('register.html', message="Упс, что то ввели неправильно", form=form)
     return render_template('register.html', title='Регистрация', form=form)
 
 
