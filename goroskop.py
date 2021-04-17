@@ -173,4 +173,8 @@ def z_s(znak):
         zn['i'] = cur.execute("SELECT delo FROM RIBA").fetchall()
         zn['j'] = cur.execute("SELECT chislo FROM RIBA").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM RIBA").fetchall()
+    return zn
 
+a = z_s(zodiac_sign(2, 25))
+for i in a.keys():
+    print(i, a[i])
