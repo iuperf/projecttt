@@ -18,7 +18,7 @@ def z_s(znak):
     zn = dict()
     zn['znak'] = znak
     if zn['znak'] == "Близнецы":
-        zn['a'] = cur.execute("SELECT zz FROM BLIZNEZI").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM BLIZNEZI").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM BLIZNEZI").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM BLIZNEZI").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM BLIZNEZI").fetchall()
@@ -30,7 +30,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM BLIZNEZI").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM BLIZNEZI").fetchall()
     elif zn['znak'] == "Овен":
-        zn['a'] = cur.execute("SELECT zz FROM OVEN").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM OVEN").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM OVEN").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM OVEN").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM OVEN").fetchall()
@@ -42,7 +42,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM OVEN").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM OVEN").fetchall()
     elif zn['znak'] == "Телец":
-        zn['a'] = cur.execute("SELECT zz FROM TELEZ").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM TELEZ").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM TELEZ").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM TELEZ").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM TELEZ").fetchall()
@@ -54,7 +54,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM TELEZ").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM TELEZ").fetchall()
     elif zn['znak'] == "Рак":
-        zn['a'] = cur.execute("SELECT zz FROM RAK").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM RAK").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM RAK").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM RAK").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM RAK").fetchall()
@@ -66,7 +66,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM RAK").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM RAK").fetchall()
     elif zn['znak'] == "Лев":
-        zn['a'] = cur.execute("SELECT zz FROM LEB").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM LEB").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM LEB").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM LEB").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM LEB").fetchall()
@@ -78,7 +78,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM LEB").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM LEB").fetchall()
     elif zn['znak'] == "Дева":
-        zn['a'] = cur.execute("SELECT zz FROM DEVA").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM DEVA").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM DEVA").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM DEVA").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM DEVA").fetchall()
@@ -90,7 +90,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM DEVA").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM DEVA").fetchall()
     elif zn['znak'] == "Весы":
-        zn['a'] = cur.execute("SELECT zz FROM VECI").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM VECI").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM VECI").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM VECI").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM VECI").fetchall()
@@ -102,7 +102,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM VECI").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM VECI").fetchall()
     elif zn['znak'] == "Скорпион":
-        zn['a'] = cur.execute("SELECT zz FROM SKORPION").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM SKORPION").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM SKORPION").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM SKORPION").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM SKORPION").fetchall()
@@ -114,7 +114,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM SKORPION").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM SKORPION").fetchall()
     elif zn['znak'] == "Стрелец":
-        zn['a'] = cur.execute("SELECT zz FROM CTRELEZ").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM CTRELEZ").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM CTRELEZ").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM CTRELEZ").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM CTRELEZ").fetchall()
@@ -126,7 +126,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM CTRELEZ").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM CTRELEZ").fetchall()
     elif zn['znak'] == "Рак":
-        zn['a'] = cur.execute("SELECT zz FROM RAK").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM RAK").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM RAK").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM RAK").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM RAK").fetchall()
@@ -138,7 +138,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM RAK").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM RAK").fetchall()
     elif zn['znak'] == "Козерог":
-        zn['a'] = cur.execute("SELECT zz FROM KOZA").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM KOZA").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM KOZA").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM KOZA").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM KOZA").fetchall()
@@ -150,7 +150,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM KOZA").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM KOZA").fetchall()
     elif zn['znak'] == "Водолей":
-        zn['a'] = cur.execute("SELECT zz FROM VODOLEI").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM VODOLEI").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM VODOLEI").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM VODOLEI").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM VODOLEI").fetchall()
@@ -162,7 +162,7 @@ def z_s(znak):
         zn['j'] = cur.execute("SELECT chislo FROM VODOLEI").fetchall()
         zn['k'] = cur.execute("SELECT prognos FROM VODOLEI").fetchall()
     elif zn['znak'] == "Рыбы":
-        zn['a'] = cur.execute("SELECT zz FROM RIBA").fetchall()
+        zn['Знак зодиака'] = cur.execute("SELECT zz FROM RIBA").fetchall()
         zn['b'] = cur.execute("SELECT asz FROM RIBA").fetchall()
         zn['c'] = cur.execute("SELECT otl FROM RIBA").fetchall()
         zn['d'] = cur.execute("SELECT pred FROM RIBA").fetchall()
