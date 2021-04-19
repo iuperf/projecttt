@@ -1,16 +1,17 @@
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 import random
+import goroskop
 from боты.config import VK_TOKEN, group_id
 
 
 def main():
     vk_session = vk_api.VkApi(
-        token=TOKEN)
+        token=str(VK_TOKEN))
 
 
     date = '00-00-0000'
-    longpoll = VkBotLongPoll(vk_session, group_id)
+    longpoll = VkBotLongPoll(vk_session, int(group_id))
 
     for event in longpoll.listen():
 
@@ -33,9 +34,12 @@ def main():
                 date = event.obj.message['text']
                 print(f'текущая дата {date}')
             elif 'да' in event.obj.message['text'].lower():
-                vk.messages.send(user_id=event.obj.message['from_id'],
-                                 message=f'Ваш прогноз {date}', #добавить прногноз сюда
-                                 random_id=random.randint(0, 2 ** 64))
+                m, d = int(date[1]), int(date[0])
+                goros = goroskop.z_s(goroskop.zodiac_sign(m, d))
+                for i in goros.keys():
+                    vk.messages.send(user_id=event.obj.message['from_id'],
+                                     message=goros[i], #добавить прногноз сюда
+                                     random_id=random.randint(0, 2 ** 64))
             elif 'нет' in event.obj.message['text'].lower():
                 vk.messages.send(user_id=event.obj.message['from_id'],
                                  message=f'напишите ваш год рождения ответом на это сообщение в формате\n'

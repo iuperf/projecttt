@@ -22,7 +22,6 @@ class RandomThings(commands.Cog):
         m, d = int(date[1]), int(date[0])
         sink = goroskop.zodiac_sign(m, d)
         goros = f'Ваш прогноз {goroskop.z_s(sink)}'
-        print(len(goros))
         for i in range(0, len(goros) + 1, 1999):
             c = i + 1999
             await ctx.send(goros[i:c])
