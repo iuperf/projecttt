@@ -18,8 +18,8 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
     email = sqlalchemy.Column(sqlalchemy.String,
                               index=True, unique=True, nullable=True)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    birth_date = sqlalchemy.Column(sqlalchemy.DateTime,
-                                   default=datetime.datetime.now)
+    birth_date = sqlalchemy.Column(sqlalchemy.String,
+                                   default='00.00.00')
 
     """в классах айди, фамилия, имя, возраст, почта, пароль, дата рождени, ес чо надо можно добавить
     пока все равно не работает"""

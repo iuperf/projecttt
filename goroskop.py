@@ -175,6 +175,3 @@ def z_s(znak):
         zn['Прогноз на будущее'] = cur.execute("SELECT prognos FROM RIBA").fetchall()
     return zn
 
-a = z_s(zodiac_sign(2, 25))
-for i in a.keys():
-    print(i, a[i])
