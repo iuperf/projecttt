@@ -1,11 +1,8 @@
 from discord.ext import commands
-import requests
+import goroskop
 from боты.config import DS_TOKEN
 
 TOKEN = DS_TOKEN
-
-
-goroskop = 'empty'
 
 
 class RandomThings(commands.Cog):
@@ -21,8 +18,10 @@ class RandomThings(commands.Cog):
 
     @commands.command(name='get_g')
     async def roll_dice(self, ctx, date):
-        goroskop = f'Ваш прогноз {date}'  # date заменим на функция(date)
-        await ctx.send(goroskop)
+        date = date.split('-')
+        m, d = int(date[1]), int(date[0])
+        goros = f'Ваш прогноз {goroskop.z_s(goroskop.zodiac_sign(m, d))}'
+        await ctx.send(goros)
 
 
 

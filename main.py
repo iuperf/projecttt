@@ -37,7 +37,7 @@ def login():
         db_sess = db_session.create_session()
         user = db_sess.query(User).filter(User.email == form.email.data).first()
         if user and user.check_password(form.password.data):
-            current_user = login_user(user, remember=form.remember_me.data)
+            login_user(user, remember=form.remember_me.data)
             return redirect("/")
         else:
             return render_template('login.html', message="Wrong login or password", form=form)
@@ -75,7 +75,7 @@ def register():
         db_sess = db_session.create_session()
         user = db_sess.query(User).filter(User.email == form.email.data).first()
         if user and user.check_password(form.password.data):
-            current_user = login_user(user, remember=True)
+            login_user(user, remember=True)
 
         return redirect("/")
     else:
@@ -87,7 +87,7 @@ def register():
 @login_required
 def show_gor():
     date = current_user.birth_date
-    m, d = date.split('.')[1], date.split('.')[0]
+    m, d = int(date.split('.')[1]), int(date.split('.')[0])
     print(date)
     message = goroskop.z_s(goroskop.zodiac_sign(m, d))
     return render_template('show.html', message=message)
