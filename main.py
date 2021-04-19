@@ -6,7 +6,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 from User_register import User_register
 from боты.email_sendler import send_message
 import goroskop
-import get_zapross
+from боты import get_zapross
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'key_x'
@@ -31,7 +31,6 @@ def main_page():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    global current_user
     form = LoginForm()
     if form.validate_on_submit():
         db_sess = db_session.create_session()
@@ -46,7 +45,6 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    global current_user
     form = User_register()
     if form.validate_on_submit():
         user = User()

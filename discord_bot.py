@@ -20,8 +20,12 @@ class RandomThings(commands.Cog):
     async def roll_dice(self, ctx, date):
         date = date.split('-')
         m, d = int(date[1]), int(date[0])
-        goros = f'Ваш прогноз {goroskop.z_s(goroskop.zodiac_sign(m, d))}'
-        await ctx.send(goros)
+        sink = goroskop.zodiac_sign(m, d)
+        goros = f'Ваш прогноз {goroskop.z_s(sink)}'
+        print(len(goros))
+        for i in range(0, len(goros) + 1, 1999):
+            c = i + 1999
+            await ctx.send(goros[i:c])
 
 
 
