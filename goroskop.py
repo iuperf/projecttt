@@ -16,8 +16,8 @@ def z_s(znak):
     con = sqlite3.connect('db/inform.db')
     cur = con.cursor()
     zn = dict()
-    zn['Ваш знак зодиака'] = znak
-    if zn['Ваш знак зодиака'] == "Близнецы":
+    zn['Вы'] = znak
+    if zn['Вы'] == "Близнецы":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM BLIZNEZI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM BLIZNEZI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM BLIZNEZI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -29,7 +29,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM BLIZNEZI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM BLIZNEZI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM BLIZNEZI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Овен":
+    elif zn['Вы'] == "Овен":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM OVEN").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM OVEN").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM OVEN").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -41,7 +41,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM OVEN").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM OVEN").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM OVEN").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Телец":
+    elif zn['Вы'] == "Телец":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM TELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM TELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM TELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -53,7 +53,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM TELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM TELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM TELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Рак":
+    elif zn['Вы'] == "Рак":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -65,7 +65,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Лев":
+    elif zn['Вы'] == "Лев":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM LEB").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM LEB").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM LEB").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -77,7 +77,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM LEB").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM LEB").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM LEB").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Дева":
+    elif zn['Вы'] == "Дева":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM DEVA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM DEVA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM DEVA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -89,7 +89,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM DEVA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM DEVA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM DEVA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Весы":
+    elif zn['Вы'] == "Весы":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM VECI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM VECI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM VECI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -101,7 +101,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM VECI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM VECI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM VECI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Скорпион":
+    elif zn['Вы'] == "Скорпион":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM SKORPION").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM SKORPION").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM SKORPION").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -113,7 +113,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM SKORPION").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM SKORPION").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM SKORPION").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Стрелец":
+    elif zn['Вы'] == "Стрелец":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM CTRELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM CTRELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM CTRELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -125,7 +125,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM CTRELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM CTRELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM CTRELEZ").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Рак":
+    elif zn['Вы'] == "Рак":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -137,7 +137,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM RAK").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Козерог":
+    elif zn['Вы'] == "Козерог":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM KOZA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM KOZA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM KOZA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -149,7 +149,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM KOZA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM KOZA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM KOZA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Водолей":
+    elif zn['Вы'] == "Водолей":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM VODOLEI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM VODOLEI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM VODOLEI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
@@ -161,7 +161,7 @@ def z_s(znak):
         zn['Дело для вас'] = str(cur.execute("SELECT delo FROM VODOLEI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Счастливые числа'] = str(cur.execute("SELECT chislo FROM VODOLEI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Прогноз на будущее'] = str(cur.execute("SELECT prognos FROM VODOLEI").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
-    elif zn['Ваш знак зодиака'] == "Рыбы":
+    elif zn['Вы'] == "Рыбы":
         zn['Знак зодиака'] = str(cur.execute("SELECT zz FROM RIBA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Покровитель'] = str(cur.execute("SELECT asz FROM RIBA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
         zn['Отличительная черта'] = str(cur.execute("SELECT otl FROM RIBA").fetchall()).replace('[', '').replace(']', '').replace('\\n', '').replace('(', '').replace(')', '')
