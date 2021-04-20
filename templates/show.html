@@ -2,25 +2,12 @@
 
 {% block content %}
     <h1>Прогноз</h1>
-<nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="index">Наше приложение</a>
-
-
-        {% if current_user.is_authenticated %}
-    <a class="navbar-brand" >{{ current_user.name }}  {{ current_user.surname }}</a>
-        <a class="btn btn-primary " href="/logout">Выйти</a>
-{% else %}
-            <p>
-                <a class="navbar-brand" href="login">Авторизация</a>
-                <a class="btn btn-primary " href="/register">Зарегистрироваться</a>
-                <a class="btn btn-success" href="/login">Войти</a>
-            </p>
-{% endif %}
 
     </nav>
         <div>{{ message }}</div>
     </form>
-{% endblock %}</title>
+{% endblock %}
+</title>
 </head>
 <body>
 
