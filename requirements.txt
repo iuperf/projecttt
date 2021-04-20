@@ -1,0 +1,11 @@
+flask
+sqlalchemy
+flask_wtf
+sqlalchemy
+sqlalchemy_serializer
+flask_login
+werkzeug
+pycryptodomex
+secure-smtplib
+discord
+vk_api

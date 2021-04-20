@@ -6,6 +6,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 from User_register import User_register
 from боты.email_sendler import send_message
 import goroskop
+import os
 from боты import get_zapross
 
 app = Flask(__name__)
@@ -101,4 +102,6 @@ def logout():
 app.register_blueprint(get_zapross.blueprint)
 print('http://127.0.0.1:8080/')
 db_session.global_init("db/users.db")  # сюда подставим бд
-app.run(port=8080, host='127.0.0.1')
+port = int(os.environ.get("PORT", 5000))
+app.run(port=port, host='0.0.0.0')
+
