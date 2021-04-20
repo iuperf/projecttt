@@ -10,7 +10,7 @@ def main():
         token=str(VK_TOKEN))
 
 
-    date = '00-00-0000'
+    date = '00.00.0000'
     longpoll = VkBotLongPoll(vk_session, int(group_id))
 
     for event in longpoll.listen():
@@ -31,14 +31,18 @@ def main():
                 date = user["bdate"]
             elif 'дата:' in event.obj.message['text'].lower():
                 print('ответ на сообщение')
-                date = event.obj.message['text']
+                date = event.obj.message['text'].split()[1]
                 print(f'текущая дата {date}')
+                vk.messages.send(user_id=event.obj.message['from_id'],
+                                 message=f'Вы уверенны?',
+                                 random_id=random.randint(0, 2 ** 64))
             elif 'да' in event.obj.message['text'].lower():
+                date = date.split('.')
                 m, d = int(date[1]), int(date[0])
                 goros = goroskop.z_s(goroskop.zodiac_sign(m, d))
                 for i in goros.keys():
                     vk.messages.send(user_id=event.obj.message['from_id'],
-                                     message=goros[i], #добавить прногноз сюда
+                                     message=f'{i}:{goros[i]}',
                                      random_id=random.randint(0, 2 ** 64))
             elif 'нет' in event.obj.message['text'].lower():
                 vk.messages.send(user_id=event.obj.message['from_id'],

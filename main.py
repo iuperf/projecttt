@@ -98,8 +98,7 @@ def logout():
     return redirect("/")
 
 
-if __name__ == '__main__':
-    app.register_blueprint(get_zapross.blueprint)
-    print('http://127.0.0.1:8080/')
-    db_session.global_init("db/users.db")  # сюда подставим бд
-    app.run(port=8080, host='127.0.0.1')
+app.register_blueprint(get_zapross.blueprint)
+print('http://127.0.0.1:8080/')
+db_session.global_init("db/users.db")  # сюда подставим бд
+app.run(port=8080, host='127.0.0.1')
