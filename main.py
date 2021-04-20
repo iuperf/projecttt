@@ -54,6 +54,8 @@ def register():
         user.age = form.age.data
         db_sess = db_session.create_session()
         a = db_sess.query(User).filter(User.email == form.email.data).first()
+        if not form.email.data.endswith('gmail.com') and not form.email.data.endswith('mail.ru') and not form.email.data.endswith('yandex.com'):
+            return render_template('register.html', message="Почта должна оканчиватся на gmail.com, mail.ru или yandex.com", form=form)
         if not a:
             user.email = form.email.data
         else:

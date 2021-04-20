@@ -11,10 +11,11 @@ def send_message(to_email, text):
     msg.attach((MIMEText(message, 'plain')))
     if to_email.endswith('gmail.com'):
         server = smtplib.SMTP('smtp.gmail.com: 587')
-    elif 'mail.' in to_email:
+    elif to_email.endswith('mail.ru'):
         server = smtplib.SMTP(f'smtp.mail.ru: 25')
-    elif 'yandex.' in to_email:
+    elif to_email.endswith('yandex.com'):
         server = smtplib.SMTP(f'smtp.yandex.com: 465')
+
     else:
         return 'Неправильный ввод'
     server.starttls()
