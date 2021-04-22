@@ -90,8 +90,11 @@ def show_gor():
     date = current_user.birth_date
     m, d = int(date.split('.')[1]), int(date.split('.')[0])
     print(date)
-    message = str(goroskop.z_s(goroskop.zodiac_sign(m, d))).replace('}', '').replace('{', '').replace("'", "").replace('"', '').replace(',,', ',')
-    return render_template('show.html', message=message)
+    message = goroskop.z_s(goroskop.zodiac_sign(m, d))
+    keys = message.keys()
+
+
+    return render_template('show.html', message=message, keys=keys)
 
 
 @app.route('/logout')
@@ -102,7 +105,6 @@ def logout():
 
 
 app.register_blueprint(get_zapross.blueprint)
-print('http://127.0.0.1:8080/')
 db_session.global_init("db/users.db")  # сюда подставим бд
 port = int(os.environ.get("PORT", 5000))
 app.run(port=port, host='0.0.0.0')

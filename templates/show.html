@@ -4,7 +4,10 @@
     <h1>Прогноз</h1>
 
     </nav>
-        <div>{{ message }}</div>
+        {% for key in keys %}
+        <h2>{{key}}:   {{message[key]}}</h2>
+        <br></br>
+    {% endfor %}
     </form>
     <head>
   <meta charset="utf-8">
