@@ -90,7 +90,7 @@ def show_gor():
     date = current_user.birth_date
     m, d = int(date.split('.')[1]), int(date.split('.')[0])
     print(date)
-    message = goroskop.z_s(goroskop.zodiac_sign(m, d))
+    message = str(goroskop.z_s(goroskop.zodiac_sign(m, d))).replace('}', '').replace('{', '').replace("'", "").replace('"', '').replace(',,', ',')
     return render_template('show.html', message=message)
 
 
